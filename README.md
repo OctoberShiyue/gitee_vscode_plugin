@@ -4,7 +4,7 @@
 [GitHub 项目地址](https://github.com/OctoberShiyue/gitee_vscode_plugin)
 [VSCode 商店地址](https://marketplace.visualstudio.com/items?itemName=hbybyyang.gitee-vscode-plugin)
 
-[原GitHub 项目地址](https://gitee.com/hbybyyang/gitee_vscode_plugin)
+[原Gitee 项目地址](https://gitee.com/hbybyyang/gitee_vscode_plugin)
 [原VSCode 商店地址](https://marketplace.visualstudio.com/items?itemName=hbybyyang.gitee-vscode-plugin)
 
 快捷操作。包括下载、显示现有仓库、在 VS Code 或资源管理器中打开等等。
