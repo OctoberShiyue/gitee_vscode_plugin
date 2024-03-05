@@ -2,10 +2,9 @@ import axios from 'axios'
 
 export type 仓库返回类型 = {
   name: string
-  public: boolean
-  private: boolean
+  visibility: string
   id: string
-  html_url: string
+  http_url_to_repo: string
   path: string
 }
 export async function 获得用户仓库信息(令牌: string, 仓库排序选项: string,网址:string): Promise<仓库返回类型[]> {
@@ -38,7 +37,7 @@ export async function 修改仓库名称(令牌: string, 用户名: string, 路�
   return c.data
 }
 
-export type 通知返回类型 = { list: { content: string; html_url: string; unread: boolean; id: number }[] }
+export type 通知返回类型 = { list: { content: string; http_url_to_repo: string; unread: boolean; id: number }[] }
 export async function 获得用户通知(令牌: string): Promise<通知返回类型> {
   var c = await axios.get(
     `https://gitee.com/api/v5/notifications/threads?access_token=${令牌}&type=all&page=1&per_page=20`,

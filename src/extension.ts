@@ -46,7 +46,7 @@ export async function activate(context: vscode.ExtensionContext) {
         用户通知信息.map((a) => ({
           显示文本: (a.unread ? '[未]' : '[已]') + a.content,
           gitlab_id: a.id,
-          html_url: a.html_url,
+          http_url_to_repo: a.http_url_to_repo,
         })),
         (a) => new vscode.TreeItem(a.显示文本),
       )
@@ -56,7 +56,7 @@ export async function activate(context: vscode.ExtensionContext) {
   })
   注册命令(context, '打开通知在网页', async (a: 通知返回类型['list'][0]) => {
     try {
-      await opn(a.html_url)
+      await opn(a.http_url_to_repo)
     } catch (e: any) {
       提示('出错了: ' + e.toString())
     }
@@ -76,9 +76,9 @@ export async function activate(context: vscode.ExtensionContext) {
           ...用户仓库信息
             .filter((a) => a.name.toLowerCase().indexOf(过滤条件.toLowerCase()) != -1)
             .map((a) => ({
-              显示文本: (a.public ? '[公]' : a.private ? '[私]' : '[未]') + a.name,
+              显示文本: (a.visibility=="private" ? '[私]' : '[公]' ) + a.name,
               gitlab_id: a.id,
-              html_url: a.html_url,
+              http_url_to_repo: a.http_url_to_repo,
               path: a.path,
             })),
         ],
@@ -130,7 +130,7 @@ export async function activate(context: vscode.ExtensionContext) {
   })
   注册命令(context, '下载仓库', async (a: 仓库返回类型) => {
     try {
-      var 地址 = a.html_url
+      var 地址 = a.http_url_to_repo
       var 路径 = path.join(用户配置.下载位置, a.path)
 
       if (existsSync(路径)) {
@@ -141,6 +141,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
       await mkdirp(路径)
       try {
+        console.log(地址+"="+路径)
         await new Promise((res, rej) => gitClone(地址, 路径, {}, (err) => (err ? rej(err) : res(null))))
       } catch (e) {
         提示('出错了: ' + JSON.stringify(e))
@@ -153,7 +154,7 @@ export async function activate(context: vscode.ExtensionContext) {
   })
   注册命令(context, '打开在网页', async (a: 仓库返回类型) => {
     try {
-      var 地址 = a.html_url
+      var 地址 = a.http_url_to_repo
       await opn(地址)
     } catch (e: any) {
       提示('出错了: ' + e.toString())
@@ -181,7 +182,7 @@ export async function activate(context: vscode.ExtensionContext) {
   })
   注册命令(context, '复制仓库地址(https)', async (a: 仓库返回类型) => {
     try {
-      var 地址 = a.html_url
+      var 地址 = a.http_url_to_repo
       clipboardy.writeSync(地址)
       提示('已复制到剪切板')
     } catch (e: any) {
