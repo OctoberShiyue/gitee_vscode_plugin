@@ -1,0 +1,212 @@
+{
+  "name": "gitlab-vscode-plugin",
+  "displayName": "gitlab",
+  "description": "显示通知、仓库等等，支持相关快捷操作",
+  "version": "0.0.1",
+  "icon": "images/gitlab-logo-128.png",
+  "publisher": "hbybyyang&shiyue",
+  "engines": {
+    "vscode": "^1.47.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/shiyue/gitlab_vscode_plugin.git"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "lsby_gitlab_vscode_plugin",
+      "properties": {
+        "lsby_gitlab_vscode_plugin.personal_access_tokens": {
+          "type": "string",
+          "description": "你的gitlab私人令牌",
+          "default": ""
+        },
+        "lsby_gitlab_vscode_plugin.default_location": {
+          "type": "string",
+          "description": "下载仓库的位置,默认是家目录的gitlab文件夹",
+          "default": "${process.env.HOME || process.env.USERPROFILE}/gitlab"
+        },
+        "lsby_gitlab_vscode_plugin.notificationsUpdateTime": {
+          "type": "string",
+          "description": "通知自动刷新时间(分种),0为不自动刷新",
+          "default": "10"
+        },
+        "lsby_gitlab_vscode_plugin.repoSort": {
+          "type": "string",
+          "description": "仓库排序选项",
+          "default": "asc",
+          "enum": [
+            "asc",
+            "desc"
+          ],
+          "enumDescriptions": [
+            "创建时间",
+            "更新时间",
+            "最后推送时间",
+            "仓库所属与名称"
+          ]
+        },
+        "lsby_gitlab_vscode_plugin.gitlabhttp": {
+          "type": "string",
+          "description": "gitlab_http",
+          "default": "https://gitlab.example.com"
+        }
+      }
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "lsby_gitlab_vscode_plugin",
+          "title": "gitlab插件",
+          "icon": "images/gitlab_bar.svg"
+        }
+      ]
+    },
+    "views": {
+      "lsby_gitlab_vscode_plugin": [
+        {
+          "id": "my_repo",
+          "name": "我的仓库"
+        },
+        {
+          "id": "my_info",
+          "name": "我的通知"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "lsby_gitlab_vscode_plugin.刷新仓库",
+        "title": "刷新"
+      },
+      {
+        "command": "lsby_gitlab_vscode_plugin.过滤",
+        "title": "过滤"
+      },
+      {
+        "command": "lsby_gitlab_vscode_plugin.新建仓库",
+        "title": "新建仓库"
+      },
+      {
+        "command": "lsby_gitlab_vscode_plugin.下载仓库",
+        "title": "下载仓库"
+      },
+      {
+        "command": "lsby_gitlab_vscode_plugin.打开在网页",
+        "title": "打开在网页"
+      },
+      {
+        "command": "lsby_gitlab_vscode_plugin.打开在资源管理器",
+        "title": "打开在资源管理器"
+      },
+      {
+        "command": "lsby_gitlab_vscode_plugin.打开在vscode",
+        "title": "打开在vscode"
+      },
+      {
+        "command": "lsby_gitlab_vscode_plugin.复制仓库地址(https)",
+        "title": "复制仓库地址(https)"
+      },
+      {
+        "command": "lsby_gitlab_vscode_plugin.刷新通知",
+        "title": "刷新"
+      },
+      {
+        "command": "lsby_gitlab_vscode_plugin.打开通知在网页",
+        "title": "打开在网页"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "lsby_gitlab_vscode_plugin.新建仓库",
+          "when": "view == my_repo",
+          "group": "navigation"
+        },
+        {
+          "command": "lsby_gitlab_vscode_plugin.过滤",
+          "when": "view == my_repo",
+          "group": "navigation"
+        },
+        {
+          "command": "lsby_gitlab_vscode_plugin.刷新仓库",
+          "when": "view == my_repo",
+          "group": "navigation"
+        },
+        {
+          "command": "lsby_gitlab_vscode_plugin.刷新通知",
+          "when": "view == my_info",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "lsby_gitlab_vscode_plugin.下载仓库",
+          "when": "view == my_repo"
+        },
+        {
+          "command": "lsby_gitlab_vscode_plugin.打开在网页",
+          "when": "view == my_repo"
+        },
+        {
+          "command": "lsby_gitlab_vscode_plugin.打开在资源管理器",
+          "when": "view == my_repo"
+        },
+        {
+          "command": "lsby_gitlab_vscode_plugin.打开在vscode",
+          "when": "view == my_repo"
+        },
+        {
+          "command": "lsby_gitlab_vscode_plugin.复制仓库地址(https)",
+          "when": "view == my_repo"
+        },
+        {
+          "command": "lsby_gitlab_vscode_plugin.打开通知在网页",
+          "when": "view == my_info"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "build": "webpack",
+    "build:prod": "npm i && webpack --mode production --devtool hidden-source-map",
+    "watch": "webpack --watch",
+    "prepackage": "npm run build:prod",
+    "package": "vsce package --baseImagesUrl https://gitee.com/hbybyyang/gitlab_vscode_plugin/raw/master/",
+    "prepub": "npm run package",
+    "pub": "bash ./script/发布项目.sh"
+  },
+  "devDependencies": {
+    "@types/git-clone": "^0.2.0",
+    "@types/glob": "^8.0.0",
+    "@types/mkdirp": "^1.0.2",
+    "@types/mocha": "^10.0.0",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.47.0",
+    "@typescript-eslint/eslint-plugin": "^5.42.0",
+    "@typescript-eslint/parser": "^5.42.0",
+    "@vscode/test-electron": "^2.2.0",
+    "eslint": "^8.26.0",
+    "glob": "^8.0.3",
+    "mocha": "^10.1.0",
+    "ts-loader": "^9.4.1",
+    "typescript": "^4.8.4",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  },
+  "dependencies": {
+    "axios": "^1.1.3",
+    "clipboardy": "^2.3.0",
+    "git-clone": "^0.2.0",
+    "mkdirp": "^1.0.4",
+    "open": "^8.4.0",
+    "open-file-explorer": "^1.0.2"
+  }
+}
