@@ -1,14 +1,12 @@
 # Gitlab常用功能
-
-[![version](https://vsmarketplacebadge.apphb.com/version/hbybyyang.gitee-vscode-plugin.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=hbybyyang.gitee-vscode-plugin)
-[![installs](https://vsmarketplacebadge.apphb.com/installs/hbybyyang.gitee-vscode-plugin.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=hbybyyang.gitee-vscode-plugin)
-[![中文编程](https://gitee.com/Program-in-Chinese/overview/raw/master/%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B.png)](https://gitee.com/Program-in-Chinese/overview)
-
+该项目是gitee_vscode_plugin的修改版本，改成可用gitlab运行
+[原GitHub 项目地址](https://gitee.com/hbybyyang/gitee_vscode_plugin)
 [GitHub 项目地址](https://github.com/OctoberShiyue/gitee_vscode_plugin)
 
+[原VSCode 商店地址](https://marketplace.visualstudio.com/items?itemName=hbybyyang.gitee-vscode-plugin)
 [VSCode 商店地址](https://marketplace.visualstudio.com/items?itemName=hbybyyang.gitee-vscode-plugin)
 
-显示通知、仓库，支持相关快捷操作。包括下载、新建、显示现有仓库、在 VS Code 或资源管理器中打开等等。
+快捷操作。包括下载、显示现有仓库、在 VS Code 或资源管理器中打开等等。
 
 ## 效果
 
@@ -34,5 +32,3 @@
 ## 相关
 
 [g8up/vscode-gitee](https://gitee.com/g8up/vscode-gitee)
-
-## [Change Log](https://github.com/OctoberShiyue/gitee_vscode_plugin/blob/master/CHANGELOG.md)
