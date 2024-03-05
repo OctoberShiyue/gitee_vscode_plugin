@@ -104,30 +104,6 @@ export async function activate(context: vscode.ExtensionContext) {
       提示('出错了: ' + e.toString())
     }
   })
-  注册命令(context, '新建仓库', async (_) => {
-    try {
-      var 仓库名称 = await vscode.window.showInputBox({
-        prompt: '请输入仓库名称, 可以是中文.',
-        placeHolder: '请输入仓库名称, 可以是中文.',
-      })
-      if (仓库名称 == '' || 仓库名称 == null) return
-
-      var 路径 = await vscode.window.showInputBox({
-        prompt: '请输入仓库名称, 只能是数字和字母.',
-        placeHolder: '请输入仓库名称, 只能是数字和字母.',
-        value: await 翻译(仓库名称),
-      })
-      if (路径 == '' || 路径 == null) return
-
-      await 创建仓库(用户配置.令牌, 路径)
-      await 修改仓库名称(用户配置.令牌, gitlab用户名, 路径, 仓库名称).catch((e) => console.log(e))
-
-      提示('创建成功')
-      await 执行命令('刷新仓库')
-    } catch (e: any) {
-      提示('出错了: ' + e.toString())
-    }
-  })
   注册命令(context, '下载仓库', async (a: 仓库返回类型) => {
     try {
       var 地址 = a.http_url_to_repo

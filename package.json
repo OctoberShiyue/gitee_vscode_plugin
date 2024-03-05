@@ -87,10 +87,6 @@
         "title": "过滤"
       },
       {
-        "command": "lsby_gitlab_vscode_plugin.新建仓库",
-        "title": "新建仓库"
-      },
-      {
         "command": "lsby_gitlab_vscode_plugin.下载仓库",
         "title": "下载仓库"
       },
