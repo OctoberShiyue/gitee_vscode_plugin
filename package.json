@@ -74,10 +74,6 @@
         {
           "id": "my_gitlab",
           "name": "我的仓库"
-        },
-        {
-          "id": "my_itlab_info",
-          "name": "我的通知"
         }
       ]
     },
@@ -138,11 +134,6 @@
         {
           "command": "lsby_gitlab_vscode_plugin.刷新仓库",
           "when": "view == my_gitlab",
-          "group": "navigation"
-        },
-        {
-          "command": "lsby_gitlab_vscode_plugin.刷新通知",
-          "when": "view == my_itlab_info",
           "group": "navigation"
         }
       ],

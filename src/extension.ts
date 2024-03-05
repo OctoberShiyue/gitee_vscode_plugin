@@ -37,23 +37,23 @@ export async function activate(context: vscode.ExtensionContext) {
   var gitlab用户名 = (await 获得用户资料(用户配置.令牌,用户配置.gitlab网址)).name
   var 过滤条件 = ''
 
-  注册命令(context, '刷新通知', async () => {
-    try {
-      设置树数据('my_itlab_info', [{ 显示文本: '加载中...' }], (a) => new vscode.TreeItem(a.显示文本))
-      var 用户通知信息 = (await 获得用户通知(用户配置.令牌)).list
-      设置树数据(
-        'my_itlab_info',
-        用户通知信息.map((a) => ({
-          显示文本: (a.unread ? '[未]' : '[已]') + a.content,
-          gitlab_id: a.id,
-          http_url_to_repo: a.http_url_to_repo,
-        })),
-        (a) => new vscode.TreeItem(a.显示文本),
-      )
-    } catch (e: any) {
-      提示('出错了: ' + e.toString())
-    }
-  })
+  // 注册命令(context, '刷新通知', async () => {
+  //   try {
+  //     设置树数据('my_itlab_info', [{ 显示文本: '加载中...' }], (a) => new vscode.TreeItem(a.显示文本))
+  //     var 用户通知信息 = (await 获得用户通知(用户配置.令牌)).list
+  //     设置树数据(
+  //       'my_itlab_info',
+  //       用户通知信息.map((a) => ({
+  //         显示文本: (a.unread ? '[未]' : '[已]') + a.content,
+  //         gitlab_id: a.id,
+  //         http_url_to_repo: a.http_url_to_repo,
+  //       })),
+  //       (a) => new vscode.TreeItem(a.显示文本),
+  //     )
+  //   } catch (e: any) {
+  //     提示('出错了: ' + e.toString())
+  //   }
+  // })
   注册命令(context, '打开通知在网页', async (a: 通知返回类型['list'][0]) => {
     try {
       await opn(a.http_url_to_repo)
@@ -191,7 +191,7 @@ export async function activate(context: vscode.ExtensionContext) {
   })
 
   执行命令('刷新仓库')
-  执行命令('刷新通知')
+  // 执行命令('刷新通知')
 
   if (用户配置.通知自动刷新时间 != 0) {
     Y((s: any) =>
