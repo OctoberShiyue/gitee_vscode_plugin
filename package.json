@@ -1,5 +1,5 @@
 {
-  "name": "gitlab-vscode-plugin",
+  "name": "gitlab-vscode-plugins",
   "displayName": "gitlab-vscode-plugins",
   "description": "显示通知、仓库等等，支持相关快捷操作",
   "version": "0.0.1",
