@@ -2,7 +2,7 @@
 该项目是gitee_vscode_plugin的修改版本，改成可用gitlab运行
 
 [GitHub 项目地址](https://github.com/OctoberShiyue/gitee_vscode_plugin)
-[VSCode 商店地址](https://marketplace.visualstudio.com/items?itemName=hbybyyang.gitee-vscode-plugin)
+[VSCode 商店地址](https://marketplace.visualstudio.com/items?itemName=shiyue1023261581.gitlab-vscode-plugins)
 
 [原Gitee 项目地址](https://gitee.com/hbybyyang/gitee_vscode_plugin)
 [原VSCode 商店地址](https://marketplace.visualstudio.com/items?itemName=hbybyyang.gitee-vscode-plugin)
