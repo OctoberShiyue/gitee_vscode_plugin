@@ -1,10 +1,10 @@
-# 码云（Gitee）常用功能
+# Gitlab常用功能
 
 [![version](https://vsmarketplacebadge.apphb.com/version/hbybyyang.gitee-vscode-plugin.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=hbybyyang.gitee-vscode-plugin)
 [![installs](https://vsmarketplacebadge.apphb.com/installs/hbybyyang.gitee-vscode-plugin.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=hbybyyang.gitee-vscode-plugin)
 [![中文编程](https://gitee.com/Program-in-Chinese/overview/raw/master/%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B.png)](https://gitee.com/Program-in-Chinese/overview)
 
-[Gitee 项目地址](https://gitee.com/hbybyyang/gitee_vscode_plugin)
+[GitHub 项目地址](https://github.com/OctoberShiyue/gitee_vscode_plugin)
 
 [VSCode 商店地址](https://marketplace.visualstudio.com/items?itemName=hbybyyang.gitee-vscode-plugin)
 
@@ -35,4 +35,4 @@
 
 [g8up/vscode-gitee](https://gitee.com/g8up/vscode-gitee)
 
-## [Change Log](https://gitee.com/hbybyyang/gitee_vscode_plugin/blob/master/CHANGELOG.md)
+## [Change Log](https://github.com/OctoberShiyue/gitee_vscode_plugin/blob/master/CHANGELOG.md)

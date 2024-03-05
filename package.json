@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://gitee.com/shiyue/gitlab_vscode_plugin.git"
+    "url": "https://github.com/OctoberShiyue/gitlab_vscode_plugin.git"
   },
   "categories": [
     "Other"
@@ -179,7 +179,7 @@
     "build:prod": "npm i && webpack --mode production --devtool hidden-source-map",
     "watch": "webpack --watch",
     "prepackage": "npm run build:prod",
-    "package": "vsce package --baseImagesUrl https://gitee.com/hbybyyang/gitlab_vscode_plugin/raw/master/",
+    "package": "vsce package --baseImagesUrl https://github.com/OctoberShiyue/gitlab_vscode_plugin/raw/master/",
     "prepub": "npm run package",
     "pub": "bash ./script/发布项目.sh"
   },
