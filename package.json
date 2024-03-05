@@ -1,10 +1,10 @@
 {
   "name": "gitlab-vscode-plugin",
-  "displayName": "gitlab",
+  "displayName": "gitlab-vscode-plugins",
   "description": "显示通知、仓库等等，支持相关快捷操作",
   "version": "0.0.1",
   "icon": "images/gitlab-logo-128.png",
-  "publisher": "hbybyyang&shiyue",
+  "publisher": "shiyue1023261581",
   "engines": {
     "vscode": "^1.47.0"
   },
