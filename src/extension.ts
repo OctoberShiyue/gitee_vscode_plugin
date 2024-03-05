@@ -39,10 +39,10 @@ export async function activate(context: vscode.ExtensionContext) {
 
   注册命令(context, '刷新通知', async () => {
     try {
-      设置树数据('my_info', [{ 显示文本: '加载中...' }], (a) => new vscode.TreeItem(a.显示文本))
+      设置树数据('my_itlab_info', [{ 显示文本: '加载中...' }], (a) => new vscode.TreeItem(a.显示文本))
       var 用户通知信息 = (await 获得用户通知(用户配置.令牌)).list
       设置树数据(
-        'my_info',
+        'my_itlab_info',
         用户通知信息.map((a) => ({
           显示文本: (a.unread ? '[未]' : '[已]') + a.content,
           gitlab_id: a.id,
@@ -67,10 +67,10 @@ export async function activate(context: vscode.ExtensionContext) {
       if (过滤条件 != '') {
         显示数组 = [{ 显示文本: '※ 当前的过滤条件: ' + 过滤条件 }]
       }
-      设置树数据('my_repo', [...显示数组, { 显示文本: '加载中...' }], (a) => new vscode.TreeItem(a.显示文本))
+      设置树数据('my_gitlab', [...显示数组, { 显示文本: '加载中...' }], (a) => new vscode.TreeItem(a.显示文本))
       var 用户仓库信息 = await 获得用户仓库信息(用户配置.令牌, 用户配置.仓库排序选项,用户配置.gitlab网址)
       设置树数据(
-        'my_repo',
+        'my_gitlab',
         [
           ...显示数组,
           ...用户仓库信息

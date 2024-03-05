@@ -72,11 +72,11 @@
     "views": {
       "lsby_gitlab_vscode_plugin": [
         {
-          "id": "my_repo",
+          "id": "my_gitlab",
           "name": "我的仓库"
         },
         {
-          "id": "my_info",
+          "id": "my_itlab_info",
           "name": "我的通知"
         }
       ]
@@ -127,49 +127,49 @@
       "view/title": [
         {
           "command": "lsby_gitlab_vscode_plugin.新建仓库",
-          "when": "view == my_repo",
+          "when": "view == my_gitlab",
           "group": "navigation"
         },
         {
           "command": "lsby_gitlab_vscode_plugin.过滤",
-          "when": "view == my_repo",
+          "when": "view == my_gitlab",
           "group": "navigation"
         },
         {
           "command": "lsby_gitlab_vscode_plugin.刷新仓库",
-          "when": "view == my_repo",
+          "when": "view == my_gitlab",
           "group": "navigation"
         },
         {
           "command": "lsby_gitlab_vscode_plugin.刷新通知",
-          "when": "view == my_info",
+          "when": "view == my_itlab_info",
           "group": "navigation"
         }
       ],
       "view/item/context": [
         {
           "command": "lsby_gitlab_vscode_plugin.下载仓库",
-          "when": "view == my_repo"
+          "when": "view == my_gitlab"
         },
         {
           "command": "lsby_gitlab_vscode_plugin.打开在网页",
-          "when": "view == my_repo"
+          "when": "view == my_gitlab"
         },
         {
           "command": "lsby_gitlab_vscode_plugin.打开在资源管理器",
-          "when": "view == my_repo"
+          "when": "view == my_gitlab"
         },
         {
           "command": "lsby_gitlab_vscode_plugin.打开在vscode",
-          "when": "view == my_repo"
+          "when": "view == my_gitlab"
         },
         {
           "command": "lsby_gitlab_vscode_plugin.复制仓库地址(https)",
-          "when": "view == my_repo"
+          "when": "view == my_gitlab"
         },
         {
           "command": "lsby_gitlab_vscode_plugin.打开通知在网页",
-          "when": "view == my_info"
+          "when": "view == my_itlab_info"
         }
       ]
     }
